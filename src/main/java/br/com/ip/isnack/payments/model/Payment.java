@@ -23,18 +23,22 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name="seq_ms_payment", sequenceName = "seq_isnack_payment", allocationSize = 1)
+    @Column(name = "payment_id")
     private Long id;
 
     @NotNull
     @Positive
+    @Column(name = "payment_value")
     private BigDecimal value;
 
     @NotBlank
     @Size(max = 100)
+    @Column(name = "payment_name")
     private String name;
 
     @NotBlank
     @Size(max = 19)
+    @Column(name = "payment_number")
     private String number;
 
     @NotBlank

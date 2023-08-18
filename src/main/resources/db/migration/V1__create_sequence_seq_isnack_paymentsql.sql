@@ -1,0 +1,5 @@
+CREATE SEQUENCE seq_isnack_payment
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
