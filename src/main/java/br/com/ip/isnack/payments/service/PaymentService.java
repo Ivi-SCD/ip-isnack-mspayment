@@ -11,8 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-
-
 @Service
 public class PaymentService {
 
@@ -39,7 +37,6 @@ public class PaymentService {
         Payment payment = modelMapper.map(paymentDTO, Payment.class);
         payment.setStatus(Status.REQUESTED);
         paymentRepository.save(payment);
-
         return modelMapper.map(payment, PaymentDTO.class);
     }
 

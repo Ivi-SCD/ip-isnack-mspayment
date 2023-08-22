@@ -21,8 +21,8 @@ import java.math.BigDecimal;
 public class Payment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="seq_ms_payment", sequenceName = "seq_isnack_payment", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ISNACK_PAYMENT")
+    @SequenceGenerator(name = "SEQ_ISNACK_PAYMENT", sequenceName = "SEQ_ISNACK_PAYMENT",allocationSize = 1)
     @Column(name = "payment_id")
     private Long id;
 

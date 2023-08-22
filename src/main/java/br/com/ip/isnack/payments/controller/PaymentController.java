@@ -23,7 +23,7 @@ public class PaymentController {
 
 
     @GetMapping
-    public Page<PaymentDTO> listAllPayments(@PageableDefault(size = 10)Pageable pagination) {
+    public Page<PaymentDTO> listAllPayments(@PageableDefault(size = 15)Pageable pagination) {
         return paymentService.getAll(pagination);
     }
 
@@ -37,13 +37,12 @@ public class PaymentController {
     @PostMapping
    public ResponseEntity<PaymentDTO> registerPayment(@RequestBody @Valid PaymentDTO paymentDTO, UriComponentsBuilder uriComponentsBuilder) {
         PaymentDTO payment = paymentService.requestPayment(paymentDTO);
-
-        URI address = uriComponentsBuilder.path("/payments/{id}").buildAndExpand(payment.id()).toUri();
+        URI address = uriComponentsBuilder.path("/payments/{id}").buildAndExpand(payment.getId()).toUri();
 
         return ResponseEntity.created(address).body(payment);
     }
 
-    @PutMapping
+    @PutMapping("{id}")
     public ResponseEntity<PaymentDTO> updatePayment(@PathVariable @NotNull Long id, @RequestBody @Valid PaymentDTO paymentDTO) {
         PaymentDTO paymentUpdated = paymentService.updatePayment(id, paymentDTO);
 
